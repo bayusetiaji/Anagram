@@ -40,12 +40,14 @@ int main()
 		if (guess_word == sel_word)
 		{
 			score += 5;
-			Beep(400, 250);
+			cout << " True..   +5\n";
+			Beep(400, 500);
 		}
 		else
 		{
 			--score;
-			Beep(200, 250);
+			cout << "  False..   -1\n";
+			Beep(200, 500);
 		}
 	}
 	
@@ -61,17 +63,17 @@ void swap(char& a, char& b)
 
 string get_word()
 {
-	srand(time(NULL));
+	srand((unsigned)time(NULL));
 
 	return words[rand() % words.size()];
 }
 
 string randomize(string str)
 {
-	string result = str;
-	int len = result.length();
+	auto result = str;
+	auto len = result.length();
 
-	srand(time(NULL));
+	srand((unsigned)time(NULL));
 	
 	for (int i = 0; i < len / 2; ++i)
 	{
